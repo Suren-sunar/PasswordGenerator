@@ -5,8 +5,12 @@ const App = () => {
   return (
     <>
       <PasswordGen />
+      
     </>
   );
 }
 
 export default App;
+
+
+
