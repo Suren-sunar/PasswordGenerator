@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './PasswordGen.css'; // Import your CSS file
 
+
 const PasswordGen = () => {
   const generatePassword = (passwordlength, includeuppercase, includelowercase, includenumbers, includesymbols) => {
     let charset = '';
