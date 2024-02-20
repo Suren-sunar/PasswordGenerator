@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
-import './PasswordGen.css'; // Import your CSS file
+import './PasswordGen.css'; 
 
 
 const PasswordGen = () => {
+
+  const [passwordlength, setpasswordlength] = useState(8);
+  const [includeuppercase, setincludeuppercase] = useState(true);
+  const [includelowercase, setincludelowercase] = useState(true);
+  const [includenumber, setincludenumber] = useState(true);
+  const [includesymbol, setincludesymbol] = useState(true);
+  const [generatedPassword, setgeneratedpassword] = useState('');
+
+  
   const generatePassword = (passwordlength, includeuppercase, includelowercase, includenumbers, includesymbols) => {
     let charset = '';
 
@@ -11,15 +20,15 @@ const PasswordGen = () => {
     }
 
     if (includelowercase) {
-      charset += 'abcdefghijklmnopqrstuvwxyz';
+      charset = charset + 'abcdefghijklmnopqrstuvwxyz';
     }
 
     if (includenumbers) {
-      charset += '0123456789';
+      charset = charset + '0123456789';
     }
 
     if (includesymbols) {
-      charset += '!@#$%^&*()_-+=<>?';
+      charset = charset +  '!@#$%^&*()_-+=<>?';
     }
 
     let password = "";
@@ -30,12 +39,7 @@ const PasswordGen = () => {
     return password;
   };
 
-  const [passwordlength, setpasswordlength] = useState(8);
-  const [includeuppercase, setincludeuppercase] = useState(true);
-  const [includelowercase, setincludelowercase] = useState(true);
-  const [includenumber, setincludenumber] = useState(true);
-  const [includesymbol, setincludesymbol] = useState(true);
-  const [generatedPassword, setgeneratedpassword] = useState('');
+
 
   const handlepasswordgenerator = () => {
     const password = generatePassword(passwordlength, includeuppercase, includelowercase, includenumber, includesymbol);
