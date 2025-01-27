@@ -1,6 +1,8 @@
-FROM node:18
-WORKDIR /PasswordGen
-COPY . .
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-CMD [ "npm","build" ]
+COPY . .
+RUN npm run build
 EXPOSE 8080
+CMD ["npm", "run", "start"]
