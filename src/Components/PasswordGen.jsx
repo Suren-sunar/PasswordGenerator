@@ -1,34 +1,37 @@
-import React, { useState } from 'react';
-import './PasswordGen.css'; 
-
+import React, { useState } from "react";
+import "./PasswordGen.css";
 
 const PasswordGen = () => {
-
   const [passwordlength, setpasswordlength] = useState(8);
   const [includeuppercase, setincludeuppercase] = useState(true);
   const [includelowercase, setincludelowercase] = useState(true);
   const [includenumber, setincludenumber] = useState(true);
   const [includesymbol, setincludesymbol] = useState(true);
-  const [generatedPassword, setgeneratedpassword] = useState('');
+  const [generatedPassword, setgeneratedpassword] = useState("");
 
-  
-  const generatePassword = (passwordlength, includeuppercase, includelowercase, includenumbers, includesymbols) => {
-    let charset = '';
+  const generatePassword = (
+    passwordlength,
+    includeuppercase,
+    includelowercase,
+    includenumbers,
+    includesymbols
+  ) => {
+    let charset = "";
 
     if (includeuppercase) {
-      charset = charset + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      charset = charset + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
 
     if (includelowercase) {
-      charset = charset + 'abcdefghijklmnopqrstuvwxyz';
+      charset = charset + "abcdefghijklmnopqrstuvwxyz";
     }
 
     if (includenumbers) {
-      charset = charset + '0123456789';
+      charset = charset + "0123456789";
     }
 
     if (includesymbols) {
-      charset = charset +  '!@#$%^&*()_-+=<>?';
+      charset = charset + "!@#$%^&*()_-+=<>?";
     }
 
     let password = "";
@@ -39,27 +42,31 @@ const PasswordGen = () => {
     return password;
   };
 
-
-
   const handlepasswordgenerator = () => {
-    const password = generatePassword(passwordlength, includeuppercase, includelowercase, includenumber, includesymbol);
+    const password = generatePassword(
+      passwordlength,
+      includeuppercase,
+      includelowercase,
+      includenumber,
+      includesymbol
+    );
     setgeneratedpassword(password);
   };
 
   const handleCopyToClipboard = () => {
     navigator.clipboard.writeText(generatedPassword);
-    
   };
-
 
   return (
     <>
-      <div className='container'>
+      <div className="container">
         <h1>Generate a Strong Password !</h1>
-        <div className='inp'>
+        <div className="inp">
           <input value={generatedPassword} type="text" name="" id="inp" />
         </div>
-        <button onClick={handleCopyToClipboard} className='copy-to-clipboard'>copy </button>
+        <button onClick={handleCopyToClipboard} className="copy-to-clipboard">
+          copy{" "}
+        </button>
         <div className="password-generator-container">
           <div className="password-generator-input">
             <label>
@@ -67,7 +74,7 @@ const PasswordGen = () => {
               <input
                 defaultValue={passwordlength}
                 type="number"
-                id='size'
+                id="size"
                 min={8}
                 max={100}
                 onChange={(e) => setpasswordlength(e.target.value)}
@@ -77,7 +84,7 @@ const PasswordGen = () => {
 
           <div className="password-generator-option">
             <label>
-              Include  UpperCase :
+              Include UpperCase :
               <input
                 checked={includeuppercase}
                 onChange={(e) => setincludeuppercase(e.target.checked)}
@@ -88,7 +95,7 @@ const PasswordGen = () => {
 
           <div className="password-generator-option">
             <label>
-              Include  LowerCase :
+              Include LowerCase :
               <input
                 checked={includelowercase}
                 onChange={(e) => setincludelowercase(e.target.checked)}
@@ -99,7 +106,7 @@ const PasswordGen = () => {
 
           <div className="password-generator-option">
             <label>
-              Include  Number :
+              Include Number :
               <input
                 checked={includenumber}
                 onChange={(e) => setincludenumber(e.target.checked)}
@@ -110,7 +117,7 @@ const PasswordGen = () => {
 
           <div className="password-generator-option">
             <label>
-              Include  Symbol :
+              Include Symbol :
               <input
                 checked={includesymbol}
                 onChange={(e) => setincludesymbol(e.target.checked)}
@@ -120,7 +127,13 @@ const PasswordGen = () => {
           </div>
 
           <div className="password-generator-button">
-            <button onClick={handlepasswordgenerator} className='generate' type="Submit">Generate Random Password</button>
+            <button
+              onClick={handlepasswordgenerator}
+              className="generate"
+              type="Submit"
+            >
+              Generate Random Password
+            </button>
           </div>
         </div>
       </div>
