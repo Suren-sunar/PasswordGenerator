@@ -60,7 +60,7 @@ const PasswordGen = () => {
   return (
     <>
       <div className="container">
-        <h1>Generate a Strong and Secure Password</h1>
+        <h1>Generate a Strong and Secure Password!</h1>
         <div className="inp">
           <input value={generatedPassword} type="text" name="" id="inp" />
         </div>

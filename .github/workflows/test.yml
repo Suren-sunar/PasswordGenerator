@@ -24,7 +24,7 @@ jobs:
           docker run -d \
             --name myapp \
             --restart unless-stopped \
-            -p 3000:8080 \
+            -p 5173:5173 \
             ${{ secrets.DOCKER_IMAGE }}:latest
 
           # Clean up old images
