@@ -1,9 +1,8 @@
 name: Deploy to Server
 
 on:
-  workflow_dispatch:  # Manual trigger
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   deploy:
