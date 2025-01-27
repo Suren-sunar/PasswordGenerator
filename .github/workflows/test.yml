@@ -25,7 +25,7 @@ jobs:
             --name myapp \
             --restart unless-stopped \
             -p 8080:80 \
-            ${{ secrets.DOCKER_IMAGE }}:v1.0
+            ${{ secrets.DOCKER_IMAGE }}:v1.1
 
           # Clean up old images
           docker image prune -f
